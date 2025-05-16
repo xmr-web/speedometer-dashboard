@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .speedometer-container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+    }
+    .speedometer, .needle {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .needle {
+      transform-origin: center bottom;
+      transition: transform 0.5s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <div class="speedometer-container">
+    <img src="https://purepng.com/photo/18256/clipart-speedometer" class="speedometer">
+    <img src="https://www.kindpng.com/picc/m/79-794732_speedometer-needle-png-circle-transparent-png.png" class="needle" id="needle">
+  </div>
+
+  <script>
+    function updateNeedle(speed) {
+      let needle = document.getElementById("needle");
+      let rotation = (speed / 100) * 180; 
+      needle.style.transform = `rotate(${rotation}deg)`;
+    }
+
+    // Example test: Set needle to 60
+    updateNeedle(60);
+  </script>
+</body>
+</html>
