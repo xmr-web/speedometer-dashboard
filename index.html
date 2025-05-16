@@ -34,9 +34,10 @@ function getSpeedFromURL() {
 // Update needle based on speed
 function updateNeedle(speed) {
   let needle = document.getElementById("needle");
-  let rotation = (speed / 100) * 180; 
+  let rotation = (speed / 100) * 180 - 90; // Adjust starting position
   needle.style.transform = `rotate(${rotation}deg)`;
 }
+
 
 // Set the needle on page load
 document.addEventListener("DOMContentLoaded", function() {
