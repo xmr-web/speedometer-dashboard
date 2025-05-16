@@ -25,14 +25,25 @@
   </div>
 
   <script>
-    function updateNeedle(speed) {
-      let needle = document.getElementById("needle");
-      let rotation = (speed / 100) * 180; 
-      needle.style.transform = `rotate(${rotation}deg)`;
-    }
+    // Get speed from the URL
+function getSpeedFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("speed") || 0; // Default to 0
+}
 
-    // Example test: Set needle to 60
-    updateNeedle(60);
+// Update needle based on speed
+function updateNeedle(speed) {
+  let needle = document.getElementById("needle");
+  let rotation = (speed / 100) * 180; 
+  needle.style.transform = `rotate(${rotation}deg)`;
+}
+
+// Set the needle on page load
+document.addEventListener("DOMContentLoaded", function() {
+  let speed = getSpeedFromURL();
+  updateNeedle(speed);
+});
+
   </script>
 </body>
 </html>
